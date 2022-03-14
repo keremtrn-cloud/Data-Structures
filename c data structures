@@ -1,0 +1,74 @@
+
+#include <stdlib.h>
+
+
+typedef struct node{
+	
+	int data;
+	struct node *link;
+}node_k;
+
+node_k * top = NULL;
+void push(int x)
+{
+   node_k * newnode;
+   newnode = (node_k*)malloc(sizeof(node_k));
+   newnode->data;
+   newnode->link = top;
+   top = newnode;
+}
+
+void display(){
+	
+	node_k * temp;
+	temp = top;
+	
+	if (top == 0)
+	{
+		printf("Stack is empty.");
+	}
+	else
+	{
+		while(temp !=0)
+		{
+			printf("%d",temp->data);
+			temp = temp->link;
+		}
+	}
+}
+void peek(){
+	
+	if(top==0)
+	{
+		exit(-1);
+	}
+	else
+	{
+		printf("top element is %d",top->data);
+		
+	}
+}
+void pop(){
+	node_k *temp;
+	temp = top;
+	
+	if(temp==0)
+	{
+		exit (-1);
+	}
+	else
+	{
+		printf("%d",top->data);
+		top = top->link;
+		free(temp);
+	}
+}
+
+int main()
+{
+	push(2);
+	push(3);
+	push(5);
+	display();
+	peek();
+}
